@@ -5,10 +5,11 @@ remote_state {
 		if_exists = "overwrite_terragrunt"
 	}
 	config = {
-		bucket         = "devopshub-tf-state-${get_aws_account_id()}"
+		bucket         = "devopshub-tf-state2"
 		key            = "${path_relative_to_include()}/terraform.tfstate"
 		region         = "us-east-1"
 		encrypt        = true
+		kms_key_id     = "alias/devopshub-dev-terraform-state"
 		dynamodb_table = "devopshub-tf-locks"
 	}
 }
